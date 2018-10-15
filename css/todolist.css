@@ -1,5 +1,4 @@
 html {
-    max-width: 900px;
     margin: auto;
 }
 
@@ -9,6 +8,8 @@ body {
 }
 
 #app {
+    max-width: 900px;
+    margin: auto;
     position: relative;
     min-height: 100%;
     padding-bottom: 60px;
@@ -34,8 +35,13 @@ h1 {
     height: 1.7em;
     float: right;
     background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' standalone='no'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg t='1539600938016' class='icon' style='' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='4746' xmlns:xlink='http://www.w3.org/1999/xlink' width='64' height='64'%3E%3Cdefs%3E%3Cstyle type='text/css'%3E%3C/style%3E%3C/defs%3E%3Cpath d='M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z' fill='%23D1D1D1' p-id='4747'%3E%3C/path%3E%3Cpath d='M602.0096 512.11264L722.91328 633.0368c20.2752 20.2752 20.2752 52.13184 0 72.3968s-52.13184 20.2752-72.40704 0L529.59232 584.52992 408.6784 705.44384c-20.2752 20.2752-52.14208 20.2752-72.41728 0s-20.2752-52.13184 0-72.40704l120.9344-120.92416-120.9344-120.92416c-20.2752-20.2752-20.2752-52.1216 0-72.3968s52.14208-20.2752 72.41728 0L529.59232 439.7056l120.19712-120.19712c20.2752-20.2752 52.13184-20.2752 72.40704 0s20.2752 52.13184 0 72.40704L602.0096 512.11264z' fill='%23FFFFFF' p-id='4748'%3E%3C/path%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' standalone='no'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg t='1539600938016' class='icon' style='' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='4746' xmlns:xlink='http://www.w3.org/1999/xlink' width='64' height='64'%3E%3Cdefs%3E%3Cstyle type='text/css'%3E%3C/style%3E%3C/defs%3E%3Cpath d='M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z' fill='%23faaca8' p-id='4747'%3E%3C/path%3E%3Cpath d='M602.0096 512.11264L722.91328 633.0368c20.2752 20.2752 20.2752 52.13184 0 72.3968s-52.13184 20.2752-72.40704 0L529.59232 584.52992 408.6784 705.44384c-20.2752 20.2752-52.14208 20.2752-72.41728 0s-20.2752-52.13184 0-72.40704l120.9344-120.92416-120.9344-120.92416c-20.2752-20.2752-20.2752-52.1216 0-72.3968s52.14208-20.2752 72.41728 0L529.59232 439.7056l120.19712-120.19712c20.2752-20.2752 52.13184-20.2752 72.40704 0s20.2752 52.13184 0 72.40704L602.0096 512.11264z' fill='%23FFFFFF' p-id='4748'%3E%3C/path%3E%3C/svg%3E");
     background-repeat: no-repeat;
+}
+
+.custom-control-label::before,
+.custom-control-label::after {
+    transform: scale(1.4, 1.4);
 }
 
 .record-item {
@@ -59,6 +65,10 @@ s {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.close-div {
+    padding-right: 0;
 }
 
 label {
