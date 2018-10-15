@@ -7,13 +7,16 @@ body {
     height: 100%;
 }
 
-#app {
-    max-width: 900px;
+.wrapper {
     margin: auto;
     position: relative;
     min-height: 100%;
     padding-bottom: 60px;
     box-sizing: border-box;
+}
+
+#app {
+    max-width: 900px;
 }
 
 .row {

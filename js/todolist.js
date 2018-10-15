@@ -25,6 +25,11 @@ let app = new Vue({
   methods: {
     submit: function () {
       if (!!this.message) {
+        if (!this.message.trim()) {
+          this.message = '';
+          this.$ref.input.$el.focus();
+          return;
+        }
         this.todo.splice(0, 0, this.message);
         set(TODO_KEY, this.todo);
         this.message = '';
