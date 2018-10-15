@@ -47,11 +47,6 @@ h1 {
     transform: scale(1.4, 1.4);
 }
 
-.record-item {
-    margin: auto;
-    border-bottom: solid .5px #eee;
-}
-
 .pointer,
 .pointer>*:hover {
     cursor: pointer;
@@ -98,4 +93,40 @@ label {
     height: 60px;
     background-color: #f5f5f5;
     font-family: Consolas, Monaco, "Input Mono", "PT Mono", Menlo, monospace;
+    color: #999999;
+}
+
+.record-item {
+    transition: all 1s;
+}
+
+.move-todo-enter,
+.move-todo-leave-to,
+.move-done-enter,
+.move-done-leave-to {
+    opacity: 0;
+}
+
+.move-todo-enter,
+.move-todo-leave-to {
+    transform: translateY(30px);
+}
+
+.move-done-enter,
+.move-done-leave-to {
+    transform: translateY(-30px);
+}
+
+.move-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.record-item {
+    border-bottom: solid .5px #eee;
+    display: inline-block;
+}
+
+.row-padding {
+    padding: .5em 1.5em;
 }
