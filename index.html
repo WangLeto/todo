@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#42b983">
     <link rel="shortcut icon" href="asset/favicon.ico" type="image/vnd.microsoft.icon" />
     <link rel="icon" href="asset/favicon.ico" type="image/vnd.microsoft.icon" />
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css"> -->
@@ -36,7 +37,7 @@
                                 <input type="checkbox" class="custom-control-input" :checked="false">
                                 <label class="custom-control-label text-justify pl-3">{{item}}</label>
                             </div>
-                            <div class="col-md-1 col-1 close-div"> <button @click="delTodo(index)" class="btn transparent close-i"
+                            <div class="col-md-1 col-1 close-div"> <button @click="delTodo(index)" class="btn close-i"
                                     onclick="this.blur();"></button></div>
                         </div>
                     </div>
@@ -51,7 +52,7 @@
                                 <input type="checkbox" class="custom-control-input" :checked="true">
                                 <label class="custom-control-label text-justify pl-3"><s>{{item}}</s></label>
                             </div>
-                            <div class="col-md-1 col-1 close-div"> <button @click="delDone(index)" class="btn transparent close-i"
+                            <div class="col-md-1 col-1 close-div"> <button @click="delDone(index)" class="btn close-i"
                                     onclick="this.blur();"></button></div>
                         </div>
                     </div>
@@ -60,8 +61,8 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-copyright text-center py-3">© 2018 Copyright:
-                        <a href="http://blog.letow.top" target="_newtab" ref="noopener" class="badge badge-light me">leto</a>
+                <div class="footer-copyright text-center">Copyright © 2018
+                    <a href="http://blog.letow.top" target="_newtab" ref="noopener" class="badge badge-light me" style="font-size: 100%">leto</a>
                 </div>
             </div>
         </footer>
