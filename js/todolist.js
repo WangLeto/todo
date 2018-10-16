@@ -84,3 +84,17 @@ let app = new Vue({
     switchTheme(parseInt(currentTheme));
   }
 });
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('todo/sw.js', {  
+        scope: 'todo/'
+      })
+      .then(function (registration) {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      })
+      .catch(function (err) {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+  });
+}
