@@ -1,4 +1,4 @@
-const VERSION = '1.1';
+const VERSION = '1.2';
 
 // 监听 service worker 的 install 事件
 this.addEventListener('install', function (event) {
@@ -24,16 +24,18 @@ this.addEventListener('install', function (event) {
 // 缓存更新
 self.addEventListener('activate', function (event) {
     event.waitUntil(
-        caches.keys().then(function (cacheNames) {
-            return Promise.all(
-                cacheNames.map(function (cacheName) {
-                    // 如果当前版本和缓存版本不一致
-                    if (cacheName !== VERSION) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
-        })
+        Promise.all([
+            self.clients.claim(),
+            caches.keys().then(function (cacheList) {
+                return Promise.all(
+                    cacheList.map(function (cacheName) {
+                        if (cacheName !== VERSION) {
+                            return caches.delete(cacheName);
+                        }
+                    })
+                )
+            })
+        ])
     );
 });
 
