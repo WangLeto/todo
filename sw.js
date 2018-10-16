@@ -6,7 +6,6 @@ this.addEventListener('install', function (event) {
     event.waitUntil(
         // 安装成功后操作 CacheStorage 缓存，使用之前需要先通过 caches.open() 打开对应缓存空间。
         caches.open(VERSION).then(function (cache) {
-            console.log('open promise resolved')
             // 通过 cache 缓存对象的 addAll 方法添加 precache 缓存
             return cache.addAll([
                 '/todo/index.html',
