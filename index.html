@@ -30,10 +30,12 @@
             <div class="row">
                 <div class="col-md-8 mb-2">
                     <input ref="input" class="form-control" type="text" v-model="message" @keyup.enter.exact="submit"
-                        placeholder="按下 Ctrl 使用谷歌搜索" autofocus="autofocus" @keyup.enter.ctrl.exact="search">
+                        @keydown.ctrl="pressingCtrl=true" @keyup.17="pressingCtrl=false" placeholder="按下 Ctrl 并回车进行搜索"
+                        autofocus="autofocus" @keyup.enter.ctrl.exact="search">
                 </div>
                 <div class="col-md-4 mb-2">
-                    <button class="btn btn-info btn-block submit-btn" @click.exact="submit" @click.ctrl.exact="search">添加</button>
+                    <button class="btn btn-info btn-block submit-btn" @click.exact="submit" @click.ctrl.exact="search">
+                        {{pressingCtrl?'搜索' : '添加'}}</button>
                 </div>
             </div>
             <h3 class="text-muted no-select mt-2">进行中</h3>

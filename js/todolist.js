@@ -38,6 +38,7 @@ let app = new Vue({
     todo: [],
     done: [],
     currentTheme: 0,
+    pressingCtrl: false,
     imageLoadFail: false
   },
   methods: {
