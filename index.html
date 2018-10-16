@@ -37,11 +37,11 @@
             <h3 class="text-muted no-select mt-2">进行中</h3>
             <div class="todo">
                 <transition-group name="move-todo" class="move-group">
-                    <div v-for="(item, index) in todo" class="record-item" :key="index + 'todo'">
+                    <div v-for="(item, index) in todo" class="record-item" :key="item.uid">
                         <div class="row row-padding">
                             <div class="custom-control custom-checkbox col-md-11 col-11 pointer" @click="todoDone(index)">
                                 <input type="checkbox" class="custom-control-input" :checked="false">
-                                <label class="custom-control-label text-justify pl-3">{{item}}</label>
+                                <label class="custom-control-label text-justify pl-3">{{item.text}}</label>
                             </div>
                             <div class="col-md-1 col-1 close-div"> <button @click="delTodo(index)" class="btn close-i"
                                     onclick="this.blur();"></button></div>
@@ -52,11 +52,11 @@
             <h3 v-bind:class="todo.length == 0 ? 'mt-2' : 'mt-4'" class="text-muted no-select">已完成</h3>
             <div class="done">
                 <transition-group name="move-done" class="move-group">
-                    <div v-for="(item, index) in done" class="record-item" :key="index + 'done'">
+                    <div v-for="(item, index) in done" class="record-item" :key="item.uid">
                         <div class="row row-padding">
                             <div class="custom-control custom-checkbox col-md-11 col-11 pointer" @click="doneTodo(index)">
                                 <input type="checkbox" class="custom-control-input" :checked="true">
-                                <label class="custom-control-label text-justify pl-3"><s>{{item}}</s></label>
+                                <label class="custom-control-label text-justify pl-3"><s>{{item.text}}</s></label>
                             </div>
                             <div class="col-md-1 col-1 close-div"> <button @click="delDone(index)" class="btn close-i"
                                     onclick="this.blur();"></button></div>

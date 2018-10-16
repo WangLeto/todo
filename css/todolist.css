@@ -101,13 +101,10 @@ s {
 }
 
 .move-todo-enter,
-.move-todo-leave-to {
-    transform: translateY(30px);
-}
-
+.move-todo-leave-to,
 .move-done-enter,
 .move-done-leave-to {
-    transform: translateY(-30px);
+    transform: translateX(1em);
 }
 
 .move-group {

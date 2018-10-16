@@ -15,8 +15,9 @@ const get = function (key) {
   }
 };
 
-const set = function (key, value) {
-  let str = JSON.stringify(value);
+const set = function (key, items) {
+  let arr = items.map(e => e.text);
+  let str = JSON.stringify(arr);
   localStorage.setItem(key, str);
 };
 
@@ -24,9 +25,11 @@ const switchTheme = function (index) {
   let obj = document.getElementById('theme-css');
   obj.setAttribute('href', 'todo/css/' + THEME_STORE.items[index] + '.css');
   document.getElementById('theme-color').setAttribute('content', index == 0 ? '#42b983' : '#000000');
-  set(THEME_STORE.key, index);
+  localStorage.setItem(THEME_STORE.key, index);
   currentTheme = index;
-}
+};
+
+let UID = 0;
 
 let app = new Vue({
   el: '#app',
@@ -37,14 +40,18 @@ let app = new Vue({
     currentTheme: 0
   },
   methods: {
-    submit: function () {
+    submit: function (e) {
+      console.log(e)
       if (!!this.message) {
         if (!this.message.trim()) {
           this.message = '';
           this.$ref.input.$el.focus();
           return;
         }
-        this.todo.splice(0, 0, this.message);
+        this.todo.splice(0, 0, {
+          uid: UID++,
+          text: this.message
+        });
         set(TODO_KEY, this.todo);
         this.message = '';
       }
@@ -73,8 +80,20 @@ let app = new Vue({
     }
   },
   created: function () {
-    this.todo = get(TODO_KEY);
-    this.done = get(DONE_KEY);
+    let todo = get(TODO_KEY);
+    todo.forEach(e => {
+      this.todo.push({
+        uid: UID++,
+        text: e
+      });
+    });
+    let done = get(DONE_KEY);
+    done.forEach(e => {
+      this.done.push({
+        uid: UID++,
+        text: e
+      });
+    });
 
     let currentTheme = localStorage.getItem(THEME_STORE.key);
     if (currentTheme === null) {
