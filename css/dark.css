@@ -1,0 +1,38 @@
+body {
+    background: #000;
+}
+
+input[type="text"] {
+    background-color: #222222;
+    border: solid 1px #555555;
+}
+
+label {
+    color: #ffffff;
+}
+
+.footer {
+    background: #222222;
+}
+
+.badge {
+    background: #444444;
+}
+
+
+.badge-light[href]:focus, .badge-light[href]:hover {
+    background: #666666;
+}
+
+.todo,
+.done {
+    box-shadow: 0 1px 5px #575757;
+}
+
+.row-padding {
+    border-bottom: solid .5px #424242;
+}
+
+s {
+    color: #666666;
+}

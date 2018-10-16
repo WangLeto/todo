@@ -139,3 +139,8 @@ s {
 .me {
     color: #bbb;
 }
+
+.theme-switcher {
+    width: .4em;
+    height: .4em;
+}

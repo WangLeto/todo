@@ -1,9 +1,14 @@
 const TODO_KEY = 'todo_storage';
 const DONE_KEY = 'done_storage';
+const THEME_STORE = {
+  key: 'theme_storage',
+  items: ['light', 'dark']
+};
+let currentTheme = 0;
 
 const get = function (key) {
   let value = localStorage.getItem(key);
-  if (value) {
+  if (value !== null) {
     return JSON.parse(value);
   } else {
     return [];
@@ -15,12 +20,20 @@ const set = function (key, value) {
   localStorage.setItem(key, str);
 };
 
+const switchTheme = function (index) {
+  let obj = document.getElementById('theme-css');
+  obj.setAttribute('href', 'css/' + THEME_STORE.items[index] + '.css');
+  set(THEME_STORE.key, index);
+  currentTheme = index;
+}
+
 let app = new Vue({
   el: '#app',
   data: {
     message: '',
     todo: [],
-    done: []
+    done: [],
+    currentTheme: 0
   },
   methods: {
     submit: function () {
@@ -34,6 +47,10 @@ let app = new Vue({
         set(TODO_KEY, this.todo);
         this.message = '';
       }
+    },
+    switchTheme: function () {
+      this.currentTheme = parseInt(currentTheme) == 1 ? 0 : 1;
+      switchTheme(this.currentTheme);
     },
     delTodo: function (index) {
       let deleted = this.todo.splice(index, 1);
@@ -57,5 +74,11 @@ let app = new Vue({
   created: function () {
     this.todo = get(TODO_KEY);
     this.done = get(DONE_KEY);
+
+    let currentTheme = localStorage.getItem(THEME_STORE.key);
+    if (currentTheme === null) {
+      currentTheme = 0;
+    }
+    switchTheme(parseInt(currentTheme));
   }
 });
