@@ -7,20 +7,30 @@ input[type="text"] {
     border: solid 1px #555555;
 }
 
+input[type="text"]:focus {
+    background: #333;
+    color: #aaaaaa;
+}
+
 label {
     color: #ffffff;
 }
 
 .footer {
     background: #222222;
+    color: #666666;
 }
 
 .badge {
-    background: #444444;
+    background: #333333;
 }
 
+.me {
+    color: #777777;
+}
 
-.badge-light[href]:focus, .badge-light[href]:hover {
+.badge-light[href]:focus,
+.badge-light[href]:hover {
     background: #666666;
 }
 
