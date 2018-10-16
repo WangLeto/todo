@@ -23,6 +23,7 @@ const set = function (key, value) {
 const switchTheme = function (index) {
   let obj = document.getElementById('theme-css');
   obj.setAttribute('href', 'todo/css/' + THEME_STORE.items[index] + '.css');
+  document.getElementById('theme-color').setAttribute('content', index == 0 ? '#42b983' : '#000000');
   set(THEME_STORE.key, index);
   currentTheme = index;
 }
