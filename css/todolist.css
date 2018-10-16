@@ -90,7 +90,7 @@ s {
 }
 
 .record-item {
-    transition: all 1s;
+    transition: all 0.6s;
 }
 
 .move-todo-enter,
@@ -140,4 +140,8 @@ s {
 .theme-switcher {
     width: .4em;
     height: .4em;
+}
+
+.theme-switcher.text {
+    font-size: 10px;
 }

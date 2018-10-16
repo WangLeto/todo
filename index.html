@@ -23,15 +23,17 @@
         <div id="app" class="container-fluid">
             <div class="title">
                 <h1 class="no-select pt-3">Todo
-                <img class="pointer theme-switcher" :src="currentTheme == 0 ? 'todo/asset/moon.png' : 'todo/asset/sun.png'" alt="主题"
-                    @click="switchTheme"></h1>
+                    <img class="pointer theme-switcher" :src="currentTheme == 0 ? 'todo/asset/moon.png' : 'todo/asset/sun.png'"
+                        @error="imageLoadFail=true" @load="imageLoadFail=false" :class="imageLoadFail?'text':''" alt="主题"
+                        @click="switchTheme"></h1>
             </div>
             <div class="row">
                 <div class="col-md-8 mb-2">
-                    <input ref="input" class="form-control" type="text" v-model="message" @keyup.enter="submit">
+                    <input ref="input" class="form-control" type="text" v-model="message" @keyup.enter.exact="submit"
+                        placeholder="按下 Ctrl 使用谷歌搜索" autofocus="autofocus" @keyup.enter.ctrl.exact="search">
                 </div>
                 <div class="col-md-4 mb-2">
-                    <button class="btn btn-info btn-block submit-btn" @click="submit">添加</button>
+                    <button class="btn btn-info btn-block submit-btn" @click.exact="submit" @click.ctrl.exact="search">添加</button>
                 </div>
             </div>
             <h3 class="text-muted no-select mt-2">进行中</h3>

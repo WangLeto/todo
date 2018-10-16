@@ -37,23 +37,34 @@ let app = new Vue({
     message: '',
     todo: [],
     done: [],
-    currentTheme: 0
+    currentTheme: 0,
+    imageLoadFail: false
   },
   methods: {
-    submit: function (e) {
-      console.log(e)
-      if (!!this.message) {
-        if (!this.message.trim()) {
-          this.message = '';
-          this.$ref.input.$el.focus();
+    submit: function () {
+      let message = this.message;
+      this.message = '';
+      if (!!message) {
+        if (!message.trim()) {
+          this.$refs.input.focus()
           return;
         }
         this.todo.splice(0, 0, {
           uid: UID++,
-          text: this.message
+          text: message
         });
         set(TODO_KEY, this.todo);
-        this.message = '';
+      }
+    },
+    search: function () {
+      let message = this.message;
+      this.message = '';
+      if (!!message) {
+        if (!message.trim()) {
+          this.$refs.input.focus()
+          return;
+        }
+        window.location.replace("https://www.google.com/search?q=" + encodeURIComponent(message));
       }
     },
     switchTheme: function () {
@@ -101,6 +112,11 @@ let app = new Vue({
     }
     this.currentTheme = currentTheme;
     switchTheme(parseInt(currentTheme));
+  },
+  mounted: function () {
+    this.$nextTick(function () {
+      this.$refs.input.focus();
+    });
   }
 });
 
