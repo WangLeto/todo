@@ -80,6 +80,7 @@ let app = new Vue({
     if (currentTheme === null) {
       currentTheme = 0;
     }
+    this.currentTheme = currentTheme;
     switchTheme(parseInt(currentTheme));
   }
 });
