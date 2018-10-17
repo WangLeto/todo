@@ -34,7 +34,8 @@
                         autofocus="autofocus" @keyup.enter.ctrl.exact="search">
                 </div>
                 <div class="col-md-4 mb-2">
-                    <button class="btn btn-info btn-block submit-btn" @click.exact="submit" @click.ctrl.exact="search">
+                    <button class="btn btn-info btn-block submit-btn" @click.exact="submit" @click.ctrl.exact="search"
+                        tabindex="-1">
                         {{pressingCtrl?'搜索' : '添加'}}</button>
                 </div>
             </div>
@@ -44,11 +45,11 @@
                     <div v-for="(item, index) in todo" class="record-item" :key="item.uid">
                         <div class="row row-padding">
                             <div class="custom-control custom-checkbox col-md-11 col-11 pointer" @click="todoDone(index)">
-                                <input type="checkbox" class="custom-control-input" :checked="false">
+                                <input type="checkbox" class="custom-control-input" :checked="false" tabindex="-1">
                                 <label class="custom-control-label text-justify pl-3">{{item.text}}</label>
                             </div>
                             <div class="col-md-1 col-1 close-div"> <button @click="delTodo(index)" class="btn close-i"
-                                    onclick="this.blur();"></button></div>
+                                    onclick="this.blur();" tabindex="-1"></button></div>
                         </div>
                     </div>
                 </transition-group>
@@ -59,11 +60,11 @@
                     <div v-for="(item, index) in done" class="record-item" :key="item.uid">
                         <div class="row row-padding">
                             <div class="custom-control custom-checkbox col-md-11 col-11 pointer" @click="doneTodo(index)">
-                                <input type="checkbox" class="custom-control-input" :checked="true">
+                                <input type="checkbox" class="custom-control-input" :checked="true" tabindex="-1">
                                 <label class="custom-control-label text-justify pl-3"><s>{{item.text}}</s></label>
                             </div>
                             <div class="col-md-1 col-1 close-div"> <button @click="delDone(index)" class="btn close-i"
-                                    onclick="this.blur();"></button></div>
+                                    onclick="this.blur();" tabindex="-1"></button></div>
                         </div>
                     </div>
                 </transition-group>
@@ -72,7 +73,8 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-copyright text-center">Copyright © 2018
-                    <a href="http://blog.letow.top" target="_newtab" ref="noopener" class="badge badge-light me" style="font-size: 100%">leto</a>
+                    <a href="http://blog.letow.top" target="_newtab" ref="noopener" class="badge badge-light me" style="font-size: 100%"
+                        tabindex="-1">leto</a>
                 </div>
             </div>
         </footer>
