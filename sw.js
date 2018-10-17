@@ -1,4 +1,4 @@
-const VERSION = '1.5';
+const VERSION = '1.6';
 
 // 监听 service worker 的 install 事件
 this.addEventListener('install', function (event) {
